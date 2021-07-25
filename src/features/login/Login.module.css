@@ -1,0 +1,52 @@
+
+
+.column{
+    display: flex;
+    flex-direction: column;
+}
+
+form{
+    margin: 0 auto;
+    margin-top: 7rem;
+    border: 1px solid black;
+    max-width: 300px;
+    padding: 2.4rem;
+    border-radius: 0.5rem;
+    /* box-shadow: 8px 8px 8px #888888; */
+}
+
+.form_heading{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.1rem;
+    text-transform: uppercase;
+}
+
+.form_label{
+    text-align: left;
+    margin-bottom:0.4rem ;
+}
+
+.form_field{
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.5rem;
+    margin-bottom:0.4rem ;
+    outline: none;
+}
+
+.btn_login{
+    margin-top: 0.4rem;
+    padding: 0.5rem 2.5rem;
+    background:white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.3rem;
+}
+
+.err_msg{
+    color: red;
+    font-size: 0.7rem;
+    text-align: left;
+    margin: 0;
+}
