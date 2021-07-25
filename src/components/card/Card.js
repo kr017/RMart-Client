@@ -6,6 +6,9 @@ const Card = () => {
         <div className="card">
             <div className="product-image">
                 <img className="prod-img" src={Watch} alt="watch" />
+                <span className="heart">
+                   { false ? <i className="far fa-heart"></i> : <i class="fas fa-heart" style={{color:"lightseagreen"}}></i>}
+                </span>
             </div>
             <div className="product-details">
                 <h3 className="product-name">Rollex</h3>

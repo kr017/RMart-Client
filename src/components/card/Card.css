@@ -27,6 +27,18 @@
     object-fit: cover;
     border-radius: 0.5rem 0.5rem 0rem 0rem;
 }
+.product-image{
+    position: relative;
+}
+
+.heart{
+    position: absolute;
+    right: 8px;
+    top: 4px;
+    z-index: 2;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
 
 .product-name{
     font-size : 1.2rem;
