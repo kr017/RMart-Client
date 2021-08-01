@@ -1,15 +1,20 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link} from 'react-router-dom'
 import './Navbar.css'
 import { useSelector,useDispatch } from 'react-redux';
-import { userInfo,logout } from '../../features'
+import { userInfo,logout,emptyWishlist } from '../../features'
 
 
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const user = useSelector(userInfo)
+
     const dispatch = useDispatch()
+    const logoutUser = ()=>{
+        dispatch(logout())
+        dispatch(emptyWishlist())
+    }
 
     return (
         <header>
@@ -24,7 +29,7 @@ const Navbar = () => {
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/cart" >Cart</Link></li>}
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/wishlist" >Wishlist</Link></li>}
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>}
-                            {user.accessToken && <li className="nav-item"><button className="btn-logout" onClick={()=>{dispatch(logout())}}>Logout</button></li>}
+                            {user.accessToken && <li className="nav-item"><button className="btn-logout" onClick={logoutUser}>Logout</button></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/login" >Login</Link></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/signup" >Signup</Link></li>}
                             {menu}
