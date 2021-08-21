@@ -4,6 +4,7 @@ import signupReducer from '../features/signup/signupSlice';
 import userReducer from '../features/login/userSlice';
 import productReducer from '../features/product/productSlice';
 import wishlistReducer from '../features/wishlist/wishlistSlice';
+import cartReducer from '../features/cart/cartSlice'
 
 
 export const store = configureStore({
@@ -12,6 +13,7 @@ export const store = configureStore({
     signup : signupReducer,
     user : userReducer,
     product: productReducer,
-    wishlist : wishlistReducer
+    wishlist : wishlistReducer,
+    cart : cartReducer
   },
 });

@@ -1,7 +1,7 @@
 import './Card.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist, userInfo, removeFromWishlist } from '../../features'
-import { useHistory } from 'react-router';
+import {  useHistory } from 'react-router';
 
 
 const Card = ({ _id, name, price, image }) => {
@@ -45,7 +45,7 @@ const Card = ({ _id, name, price, image }) => {
                 <span className="product-price">RS. {price}</span>
             </div>
             <div className="card-action">
-                <button className="btn-shopping" ><i className="fas fa-shopping-bag shop"></i>Shop</button>
+                <button className="btn-shopping" onClick={()=>{history.push(`/shop/${_id}`)}} ><i className="fas fa-shopping-bag shop"></i>Shop</button>
             </div>
 
         </div>
