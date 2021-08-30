@@ -10,13 +10,13 @@ const Home = () => {
     const dispatch = useDispatch();
     const product = useSelector(products)
     const user = useSelector(userInfo)
-
+    let userPrference = {filter:JSON.parse(localStorage.getItem('filter'))}
     const handleFilter =()=>{
         setModal(prevState=>!prevState)
     }
 
     useEffect(() => {
-        dispatch(getProducts())
+        dispatch(getProducts(userPrference))
         if (user.name && user.accessToken) {
             dispatch(getUserWishlist())
             dispatch(getUserCart())

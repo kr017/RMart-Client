@@ -43,6 +43,8 @@ const Card = ({ _id, name, price, image }) => {
             <div className="product-details">
                 <h3 className="product-name">{name}</h3>
                 <span className="product-price">RS. {price}</span>
+                <div className="product-discount" ><span>M.R.P  Rs. {price} 10%off</span></div>
+                
             </div>
             <div className="card-action">
                 <button className="btn-shopping" onClick={()=>{history.push(`/shop/${_id}`)}} ><i className="fas fa-shopping-bag shop"></i>Shop</button>

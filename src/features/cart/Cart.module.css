@@ -3,6 +3,10 @@
     height: auto;
 }
 
+.row{
+    display: flex;
+    align-items: center;
+}
 
 .cart_card {
     width: 324px;
@@ -16,7 +20,7 @@
 
 
 .cart_product_img {
-    width: 100%;
+    width: 140px;
     max-width: 140px;
     height: 200px;
     object-fit: cover;
@@ -101,6 +105,10 @@
     margin-top: 2rem;
 }
 
+.cart_button{
+    padding: 0.5rem;
+}
+
 @media(min-width:700px){
     
     .cart_container{
@@ -145,7 +153,14 @@
        font-size: 1.1rem;
     }
 
-    
+    .cart_summary{
+        text-align: left!important;
+        margin-top: 0.2rem;
+    }
+
+    .checkout{
+        margin-left: 8rem;
+    }
 }
 
 @media(min-width:1300px){

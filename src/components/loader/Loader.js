@@ -1,5 +1,6 @@
 import PropagateLoader from "react-spinners/PropagateLoader";
 import { css } from "@emotion/react";
+import './loader.css' 
 
 const override = css`
   display : block
@@ -7,7 +8,7 @@ const override = css`
 
 const Loader  = ({loading})=>{
   return (
-      <div style={{position:"absolute" ,left:"0px",right:"0px",top:"400px"}}>
+      <div className="loader" >
       <PropagateLoader loading={loading} css={override} color="lightseagreen"/>
       </div>
   )

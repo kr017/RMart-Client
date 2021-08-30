@@ -24,6 +24,10 @@
 .product-image{
     position: relative;
 }
+.product-details{
+    text-align: left;
+    margin-left:1rem;
+}
 
 .heart{
     position: absolute;
@@ -35,13 +39,24 @@
 }
 
 .product-name{
-    margin: 0 auto;
-    width: 10rem;
-    font-size : 1.1rem;
+    /* margin: 0 auto; */
+    width: 100%;
+    font-size : 1.2rem;
+    font-weight: 700;
     text-transform: uppercase;
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+}
+
+.product-discount{
+    font-size: 0.95rem;
+    color: grey;
+}
+
+.product-price{
+    font-size: 1.1rem;
+    font-weight: 600;
 }
 
 .card-action{
@@ -52,7 +67,7 @@
     background-color:grey; 
     border: none;
     color: white;
-    padding: 15px 2.8rem;
+    padding: 15px 4.9rem;
     text-align: center;
     text-decoration: none;
     font-size: 1.2rem;

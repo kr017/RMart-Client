@@ -1,6 +1,6 @@
 
 import './Filter.css'
-import Slider, { Range } from 'rc-slider';
+import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 import 'rc-tooltip/assets/bootstrap.css';
 import { useState } from 'react';
@@ -51,9 +51,9 @@ const Filter = (props) => {
         getAllProducts(value);
     }
 
-    const log = (value) => {
-        setFilter({ brands: filter.brands, price: filter.price, gender: filter.gender, range: value })
-    }
+    // const log = (value) => {
+    //     setFilter({ brands: filter.brands, price: filter.price, gender: filter.gender, range: value })
+    // }
 
     const clearFilter = () => {
         setFilter({ brands: [], gender: [], price: '', range: [] })
