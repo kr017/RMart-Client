@@ -2,11 +2,13 @@ import Signup from './signup/Signup'
 import Login from './login/Login'
 import Cart from './cart/Cart'
 import Address from './address/Address'
+import Order from './order/Order'
+import Wishlist from './wishlist/Wishlist'
 import { getUser,userInfo, logout } from './login/userSlice'
 import { getProducts,products } from './product/productSlice'
-import {addToWishlist,getUserWishlist,removeFromWishlist,emptyWishlist} from './wishlist/wishlistSlice'
+import {addToWishlist,getUserWishlist,removeFromWishlist,emptyWishlist,moveToCart} from './wishlist/wishlistSlice'
 import { addToCart,getUserCart,updateQty,removeProduct,moveToWishlist} from './cart/cartSlice'
-//import {addUserAddress} from './address/addressSlice'
+
 
 export{
     Signup,
@@ -15,6 +17,8 @@ export{
     userInfo,
     products,
     Address,
+    Order,
+    Wishlist,
     getUser,
     logout,
     getProducts,
@@ -26,5 +30,6 @@ export{
     getUserCart,
     updateQty,
     removeProduct,
-    moveToWishlist
+    moveToWishlist,
+    moveToCart
 }

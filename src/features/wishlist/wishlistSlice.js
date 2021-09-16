@@ -35,6 +35,17 @@ export const removeFromWishlist = createAsyncThunk(
     }
 )
 
+export const moveToCart = createAsyncThunk(
+    'wishlist/moveToCart', async (value, { rejectWithValue }) => {
+        try {
+            const res = await axios.put(`${process.env.REACT_APP_BACKEND}v1/api/move_to_cart`, value)
+            return res.data
+        } catch (error) {
+            return rejectWithValue(error.response.data)
+        }
+    }
+)
+
 const wishlistSlice = createSlice({
     name: 'wishlist',
     initialState: {
@@ -80,6 +91,18 @@ const wishlistSlice = createSlice({
             state.products = action.payload.data.products
         },
         [removeFromWishlist.rejected]: (state, action) => {
+            state.loading = false;
+            state.error = action.payload.message
+        },
+        [moveToCart.pending]: (state, action) => {
+            state.error = null
+        },
+        [moveToCart.fulfilled]: (state, action) => {
+            state.loading = false;
+            state.error = null;
+            state.products = action.payload.data.products
+        },
+        [moveToCart.rejected]: (state, action) => {
             state.loading = false;
             state.error = action.payload.message
         }

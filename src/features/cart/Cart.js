@@ -5,8 +5,8 @@ import CartCard from './Card'
 import { useEffect } from 'react'
 import { getUserCart } from '../../features'
 import { useHistory } from 'react-router'
-//  import axios from 'axios'
-// import StripeCheckout from 'react-stripe-checkout'
+import axios from 'axios'
+import StripeCheckout from 'react-stripe-checkout'
 
 
 const Cart = () => {
@@ -16,13 +16,13 @@ const Cart = () => {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    // const checkout = async (token) => {
-    //    let res = await axios.post('http://localhost:5000/v1/auth/checkout',token)
-    // }
 
     const onCheckout = () => {
         history.push('/address')
     }
+    const checkout = async (token) => {
+        let res = await axios.post('http://localhost:5000/v1/auth/checkout',token)
+     }
 
     useEffect(() => {
         dispatch(getUserCart())
@@ -45,18 +45,16 @@ const Cart = () => {
                 <div className={style.checkout}>
                     <button className="btn-shopping" onClick={onCheckout}>Checkout</button>
                 </div>
-
-
-                {/* <StripeCheckout
+                
+            </div>
+            <StripeCheckout
                     stripeKey="pk_test_51JT841SA7j2p5dnvUCwl6wEpNhbcQ1DD5ihYUGBWhal6qhKowSpM11gOKOalgaKub1ap2lIelbnHwvztJOIx0cbg00qHXLwAe2"
                     token={checkout}
                     name="Checkout"
                     amount={20*100}
                 >
                     <button onClick={checkout}>Checkout</button>
-                </StripeCheckout> */}
-            </div>
-
+                </StripeCheckout>
         </div>
     )
 }

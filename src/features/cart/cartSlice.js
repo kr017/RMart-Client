@@ -94,8 +94,8 @@ const cartSlice = createSlice({
             state.loading = false;
             state.error = null;
             state.products =  action.payload.data && action.payload.data.products ? action.payload.data.products : [];
-            state.cartSize = action.payload.data.products_in_cart;
-            state.cartValue = action.payload.data.total_cart_value;
+            state.cartSize = action.payload.data&& action.payload.data.products_in_cart ? action.payload.data.products_in_cart:0;
+            state.cartValue = action.payload.data&& action.payload.data.total_cart_value ? action.payload.data.total_cart_value:0 ;
         },
         [getUserCart.rejected]: (state, action) => {
             state.loading = false;

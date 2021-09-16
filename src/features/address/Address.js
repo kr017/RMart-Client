@@ -18,12 +18,13 @@ const Address = () => {
     }
 
     const onContinue = ()=>{
-        console.log(buttonText)
         if(buttonText.id === ''|| buttonText.id === null){
             toast.error('Please select one address.', {
                 duration: 2500,
                 position: 'top-right',
             })
+        } else {
+            
         }
     }
 

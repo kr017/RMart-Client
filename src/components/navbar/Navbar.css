@@ -28,10 +28,12 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    align-items: center;
 }
 
 .nav-list {
     display: flex;
+    justify-content: center;
     align-items: center;
     list-style: none;
 }
@@ -94,6 +96,25 @@ nav {
     left: 15px;
     top:5px;
     z-index: 5;
+}
+
+.profile-icon{
+   border: "1px solid";
+}
+
+.profile{
+    list-style: none;
+    padding: 1rem; 
+    position: absolute;
+    border: 1px solid black;
+    top:5rem;
+    right:3.4rem;
+    z-index: 5000;
+
+}
+
+.profile-list{
+  list-style: none;
 }
 
 @media(max-width:800px) {

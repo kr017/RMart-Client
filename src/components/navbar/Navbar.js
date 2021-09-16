@@ -3,11 +3,12 @@ import { Link, useRouteMatch} from 'react-router-dom'
 import './Navbar.css'
 import { useSelector,useDispatch } from 'react-redux';
 import { userInfo,logout,emptyWishlist,getProducts } from '../../features'
-
+import Profile from './Profile'
 
 
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
+    const [showProfile,setShowProfile] = useState(false)
     const user = useSelector(userInfo)
     const match = useRouteMatch("/home")
     const dispatch = useDispatch()
@@ -42,19 +43,23 @@ const Navbar = () => {
                             <li className="nav-item"><Link className="nav-link" to="/home" >Home</Link></li>
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/wishlist" >Wishlist</Link></li>}
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/cart" >Cart</Link></li>}
-                            {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>}
+                            {/* {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>} */}
+                            {user.accessToken && <li className="nav-item" onClick={()=>{setShowProfile(!showProfile)}} onMouseOver={()=>{setShowProfile(true)}} ><i className="far fa-user-circle fa-lg profile-icon" style={{fontSize:"1.8rem"}}></i></li>}
                             {user.accessToken && <li className="nav-item"><button className="btn-logout" onClick={logoutUser}>Logout</button></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/login" >Login</Link></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/signup" >Signup</Link></li>}
                             {menu}
+                            
                         </ul>
                     </div>
                     <div className="bars" onClick={() => { setMenu(!menu) }}>
                         {menu ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
                     </div>
                 </nav>
+                
 
             </div>
+            {showProfile && <Profile setShowProfile={setShowProfile}/>}
         </header>
     )
 }
