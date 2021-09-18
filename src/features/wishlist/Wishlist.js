@@ -1,8 +1,8 @@
 import Card from './Card'
-import { getUserWishlist,addToWishlist, userInfo, removeFromWishlist } from '../'
+import { getUserWishlist} from '../'
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import style from './Wishlist.module.css' 
+// import style from './Wishlist.module.css' 
 
 const Wishlist = () => {
     const dispatch = useDispatch();
@@ -10,6 +10,7 @@ const Wishlist = () => {
 
     useEffect(() => { 
         dispatch(getUserWishlist())
+        // eslint-disable-next-line
     }, [])
 
     return (

@@ -4,7 +4,7 @@ import Cart from './cart/Cart'
 import Address from './address/Address'
 import Order from './order/Order'
 import Wishlist from './wishlist/Wishlist'
-import { getUser,userInfo, logout } from './login/userSlice'
+import { getUser,userInfo, logout,updateProfile } from './login/userSlice'
 import { getProducts,products } from './product/productSlice'
 import {addToWishlist,getUserWishlist,removeFromWishlist,emptyWishlist,moveToCart} from './wishlist/wishlistSlice'
 import { addToCart,getUserCart,updateQty,removeProduct,moveToWishlist} from './cart/cartSlice'
@@ -31,5 +31,6 @@ export{
     updateQty,
     removeProduct,
     moveToWishlist,
-    moveToCart
+    moveToCart,
+    updateProfile
 }

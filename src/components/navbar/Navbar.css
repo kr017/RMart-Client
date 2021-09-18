@@ -108,13 +108,26 @@ nav {
     position: absolute;
     border: 1px solid black;
     top:5rem;
-    right:3.4rem;
-    z-index: 5000;
+    right:0;
+    z-index: 1100;
+    background-color: white;
 
 }
 
 .profile-list{
   list-style: none;
+}
+.profile-item{
+    display: none;
+}
+
+.profile-menu{
+    display: flex;
+}
+
+.profile-list-item{
+    cursor: pointer;
+    color: black;
 }
 
 @media(max-width:800px) {
@@ -178,5 +191,11 @@ nav {
         position: absolute;
         left: 8px;
         top:2px;
+    }
+    .profile-item{
+        display: flex;
+    }
+    .profile-menu{
+        display: none;
     }
 }

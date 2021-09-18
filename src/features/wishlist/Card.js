@@ -69,7 +69,7 @@ let WishlistCard = ({wishlist,_id, name, price, image })=>{
                 
             </div>
             <div className={style.card_action}>
-                <button className={style.btn_shopping} onClick={()=>{addProduct(_id)}} ><i class="fas fa-cart-plus fa-lg"></i> Add to cart</button>
+                <button className={style.btn_shopping} onClick={()=>{addProduct(_id)}} ><i className="fas fa-cart-plus fa-lg"></i> Add to cart</button>
             </div>
 
         </div>

@@ -15,7 +15,6 @@ export const addToWishlist = createAsyncThunk(
 export const getUserWishlist = createAsyncThunk(
     'wishlist/getUserWishlist', async (value, { rejectWithValue }) => {
         try {
-            console.log("1")
             const res = await axios.get('http://localhost:5000/v1/api/get_user_wishlist')
             return res.data
         } catch (error) {

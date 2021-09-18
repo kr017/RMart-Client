@@ -75,7 +75,7 @@ const Filter = (props) => {
             <div className="filter_content">
                 <div>
                     <div style={{display:'flex',justifyContent:'flex-end', cursor:"pointer"}}>
-                        <span onClick={()=>{props.state(false)}}><i class="fas fa-times"></i></span>
+                        <span onClick={()=>{props.state(false)}}><i className="fas fa-times"></i></span>
                     </div>
                     <div className="filter_header">
                         <h2>Filters</h2>

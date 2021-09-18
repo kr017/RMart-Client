@@ -26,7 +26,7 @@
     bottom: 40px;
     box-shadow: 2px 2px 3px #999;
     color: whitesmoke;
-    z-index: 2000;
+    z-index: 1200;
     transition: box-shadow 0.2s ease-in-out;
     text-align: center;
 

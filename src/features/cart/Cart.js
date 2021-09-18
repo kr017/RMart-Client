@@ -47,14 +47,14 @@ const Cart = () => {
                 </div>
                 
             </div>
-            <StripeCheckout
+            {/* <StripeCheckout
                     stripeKey="pk_test_51JT841SA7j2p5dnvUCwl6wEpNhbcQ1DD5ihYUGBWhal6qhKowSpM11gOKOalgaKub1ap2lIelbnHwvztJOIx0cbg00qHXLwAe2"
                     token={checkout}
                     name="Checkout"
                     amount={20*100}
                 >
                     <button onClick={checkout}>Checkout</button>
-                </StripeCheckout>
+                </StripeCheckout> */}
         </div>
     )
 }
