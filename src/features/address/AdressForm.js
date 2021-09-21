@@ -10,12 +10,12 @@ const AddressForm = ({ address, setText, text }) => {
     const [updateAddress, setUpdateAddress] = useState(true)
     const [buttonText, setButtonText] = useState('Select')
     const [addr, setAddr] = useState({
-        street1: address.line1,
-        street2: address.line2,
-        city: address.city,
-        pincode: address.postal_code ,
-        state: address.state,
-        country: address.country
+        street1: address.line1 ? address.line1 :'',
+        street2: address.line2 ? address.line2:'',
+        city: address.city ? address.city : '',
+        pincode: address.postal_code ? address.postal_code:'',
+        state: address.state ? address.state : '',
+        country: address.country ? address.country :''
     })
     const dispatch = useDispatch();
 

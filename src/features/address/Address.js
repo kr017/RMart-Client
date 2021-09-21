@@ -6,12 +6,14 @@ import { useEffect, useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { getUserAddressList } from './addressSlice'
 import toast from 'react-hot-toast'
+import {useHistory} from 'react-router-dom'
 
 const Address = () => {
     const addresses = useSelector((state) => state.address.addresses)
     const [addForm, setAddForm] = useState(false)
     const [buttonText, setButtonText] = useState({ value: 'Select', id:null })
     const dispatch = useDispatch()
+    const history = useHistory()
 
     const addAddressForm = () => {
         return <AddAddressForm state={setAddForm} />
@@ -24,7 +26,7 @@ const Address = () => {
                 position: 'top-right',
             })
         } else {
-            
+            history.push(`/payment/${buttonText.id}`)
         }
     }
 
