@@ -1,7 +1,7 @@
 import './App.css';
 import { Navbar, Home,ProductInfo,EditProfile} from './components'
 import { Route, Switch } from 'react-router-dom';
-import { Signup, Login,getUser,Cart,Address,Order,Wishlist,Payment} from './features'
+import { Signup, Login,getUser,Cart,Address,OrderTable,Wishlist,Payment,Order} from './features'
 import { Toaster } from "react-hot-toast";
 import { useDispatch} from 'react-redux';
 import PrivateRoute from './PrivateRoute'
@@ -32,6 +32,8 @@ function App() {
         <PrivateRoute exact component={Wishlist} path='/wishlist'></PrivateRoute>
         <PrivateRoute exact component={EditProfile} path='/edit/profile'></PrivateRoute>
         <PrivateRoute exact component={Payment} path='/payment/:address_id'></PrivateRoute>
+        <PrivateRoute exact component={OrderTable} path='/orders'></PrivateRoute>
+        <PrivateRoute exact component={Order} path='/order/:order_id'></PrivateRoute>
       </Switch>
       <Toaster />
     </div>

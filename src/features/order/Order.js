@@ -1,76 +1,63 @@
+import { useEffect, useState } from 'react';
 import style from './Order.module.css'
-
+import axios from 'axios'
+import { useParams } from "react-router";
 
 
 
 const Order = () => {
+    const [order, setOrder] = useState()
+    const { order_id } = useParams();
 
+    const getOrderDetail = async () => {
+        try {
+            let order = { order_id: order_id }
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/get_order_detail`, order)
+            setOrder(res.data.data)
+        } catch (error) {
+
+        }
+    }
+
+    useEffect(() => {
+        console.log("useEffect")
+        getOrderDetail()
+    }, [])
     return (
-        <div className="container">
-            <h2>Order Details</h2>
-            <hr></hr>
-            <div className={style.order_container}>
-                <div className={style.order_summary}>
-                    <div className={style.order_table_heading}>
-                        <span className={style.ordet_table_heding1}>Items</span>
-                        <span className={style.ordet_table_heding2}>Price</span>
-                        <span className={style.ordet_table_heding3}>Qty</span>
-                    </div>
-                    <hr></hr>
-                    <div className={style.order_table}>
-                        <div className={style.order_name}>
-                            <span className={style.order_image_container}>
-                                <img className={style.order_image} src="http://localhost:5000/uploads/products/16290121717802170285b-45c8-4a7a-8f25-6c194e5dd6de1576838875775-Roadster-Men-Black-Analogue-and-Digital-Watch-MFB-PN-SM-1545-1.webp" alt="watch" />
-                            </span>
-                            <span>Men Blue Analouge Watch Pereptual Motion ABCD</span>
+        <div className={`container ${style.column}`}>
+           
+            {order && <div className={style.order_box}>
+                <h4>Order Confirmed</h4>
+                <span className={style.purchase_date}>{order.created_at}</span>
+                <p >Order  <span className={style.order_no}>{order.order_id}</span></p>
+                <p>Total Price: Rs {order.total_cart_value}</p>
+                <p className={style.address}>Delivery Address: {order.shipping_address.line1},{order.shipping_address.line2 ? order.shipping_address.line2 : ''},{order.shipping_address.city},{order.shipping_address.postal_code}</p>
+                {
+                    order.products.map((product, index) => {
+                        return <div className={style.products}>
+                            <div className={style.product_image}>
+                                <img className={style.image} src={product.image} />
+                            </div>
+                            <div className={style.product_info}>
+                                <h4>{product.name}</h4>
+                                <span>Price: {product.price}</span>
+                                <p>Qty Purchased: {product.quantity}</p>
+                            </div>
                         </div>
-                        <div className={style.order_price}>Rs. 423000</div>
-                        <div className={style.order_qty}>5</div>
+                    })
+                }
+                {/* <div className={style.products}>
+                    <div className={style.product_image}>
+                        <img className={style.image} src={order.products[0].image} />
                     </div>
+                    <div className={style.product_info}>
+                        <h4>{order.products[0].name}</h4>
+                        <span>Price: {order.products[0].price}</span>
+                        <p>Qty Purchased: {order.products[0].quantity}</p>
+                    </div>
+                </div> */}
 
-                    <hr></hr>
-                    <div className={style.order_table}>
-                        <div className={style.order_name}>
-                            <span className={style.order_image_container}>
-                                <img className={style.order_image} src="http://localhost:5000/uploads/products/16290121717802170285b-45c8-4a7a-8f25-6c194e5dd6de1576838875775-Roadster-Men-Black-Analogue-and-Digital-Watch-MFB-PN-SM-1545-1.webp" alt="watch" />
-                            </span>
-                            <span>Men Blue Analouge Watch Pereptual Motion ABCD</span>
-                        </div>
-                        <div className={style.order_price}>Rs. 423000</div>
-                        <div className={style.order_qty}>5</div>
-                    </div>
-
-                    <hr></hr>
-                    <div className={style.order_table}>
-                        <div className={style.order_name}>
-                            <span className={style.order_image_container}>
-                                <img className={style.order_image} src="http://localhost:5000/uploads/products/16290121717802170285b-45c8-4a7a-8f25-6c194e5dd6de1576838875775-Roadster-Men-Black-Analogue-and-Digital-Watch-MFB-PN-SM-1545-1.webp" alt="watch" />
-                            </span>
-                            <span>Men Blue Analouge </span>
-                        </div>
-                        <div className={style.order_price}>Rs. 423000</div>
-                        <div className={style.order_qty}>5</div>
-                    </div>
-
-                    <hr></hr>
-                </div>
-                <div className={style.order_detail}>
-                    <div>
-                      <div className={style.order_detail_heading}>Order Summary</div>
-                      <hr></hr>
-                      <div>
-                          <div>Subtotal : Rs. 100000000</div>
-                          <div>Shipping Fee: Rs. 0</div>
-                          <div>Tax: Rs. 0</div>
-                      </div>
-                      <hr></hr>
-                      <div>Total : Rs. 100000000 </div>
-                    </div>
-                    <div>
-
-                    </div>
-                </div>
-            </div>
+            </div>}
         </div>
     );
 }

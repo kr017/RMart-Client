@@ -47,7 +47,7 @@ const Navbar = () => {
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/cart" >Cart</Link></li>}
                             {/* {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>} */}
                             {user.accessToken && <li className="nav-item profile-menu" onClick={() => { setShowProfile(!showProfile) }} onMouseOver={() => { setShowProfile(true) }} ><i className="far fa-user-circle fa-lg profile-icon" style={{ fontSize: "1.8rem" }}></i></li>}
-                            {user.accessToken && <li className="nav-item profile-item"><span className="nav-link" >Order</span></li>}
+                            {user.accessToken && <li className="nav-item profile-item"><Link className="nav-link" to="/orders" >My Orders</Link></li>}
                             {user.accessToken && <li className="nav-item profile-item"><Link className="nav-link" to="/edit/profile" >Edit Profile</Link></li>}
                             {user.accessToken && <li className="nav-item profile-item" onClick={()=>{setUpdatePassword(true)}}><span className="nav-link" >Change Password</span></li>}
                             {user.accessToken && <li className="nav-item profile-item"><button className="btn-logout" onClick={logoutUser}>Logout</button></li>}

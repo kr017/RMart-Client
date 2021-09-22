@@ -2,15 +2,18 @@ import axios from 'axios'
 import { useEffect } from 'react'
 import StripeCheckout from 'react-stripe-checkout'
 import { useDispatch, useSelector } from 'react-redux'
-import { getUserCart, } from '../'
+import { getUserCart,emptyCart } from '../'
 import { useParams } from "react-router";
-
+import {useHistory} from "react-router-dom"
+import toast from "react-hot-toast"
 
 const Payment = () => {
     const cartValue = useSelector((state) => state.cart.cartValue)
     const cartSize = useSelector((state) => state.cart.cartSize)
     const { address_id } = useParams();
     const dispatch = useDispatch()
+    const history = useHistory()
+
     const checkout = async (token) => {
         try {
             let obj ={
@@ -19,7 +22,12 @@ const Payment = () => {
                 amount :cartValue  
             }
             let res = await axios.post('http://localhost:5000/v1/api/checkout', obj)
-            console.log("res",res)
+            dispatch(emptyCart())
+            toast.success(res.data.message, {
+                duration: 1500,
+                position: 'top-right',
+            })
+            history.push(`/order/${res.data.data.order_id}`)
         } catch (error) {
             
         }
