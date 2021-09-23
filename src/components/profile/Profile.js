@@ -5,8 +5,8 @@ const Profile = ({ setShowProfile, setUpdatePassword, logoutUser }) => {
     return (
         <div className="profile" onMouseLeave={() => { setShowProfile(false) }}>
             <ul className="profile-list">
-                <li className=" profile-list-item" onClick={()=>{setShowProfile(false)}} ><Link className="nav-link" to="/orders" >My Orders</Link></li>
-                <li className="nav-item profile-list-item" onClick={()=>{setShowProfile(false)}} ><Link className="nav-link" to="/edit/profile" >Edit Profile</Link></li>
+                <li className=" profile-list-item" onClick={()=>{setShowProfile(false)}} ><Link className="nav-link-dropdown" to="/orders" >My Orders</Link></li>
+                <li className="nav-item profile-list-item" onClick={()=>{setShowProfile(false)}} ><Link className="nav-link-dropdown" to="/edit/profile" >Edit Profile</Link></li>
                 <li className="profile-list-item" onClick={() => { setShowProfile(false); setUpdatePassword(true) }} >Change Password</li>
                 <li className="nav-item" onClick={()=>{setShowProfile(false)}}><button className="btn-logout" onClick={logoutUser}>Logout</button></li>
             </ul>

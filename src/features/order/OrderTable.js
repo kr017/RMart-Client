@@ -32,7 +32,7 @@ const OrderTable = () => {
                     <tr>
                         <th>No</th>
                         <th>Order Id</th>
-                        <th>Date</th>
+                        <th >Date</th>
                     </tr>
                     {
                         orders.map((order,index) => {

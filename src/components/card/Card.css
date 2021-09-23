@@ -64,7 +64,8 @@
 }
 
 .btn-shopping{
-    background-color:grey; 
+    /* background-color:grey;  */
+    background-color:#232F3E; 
     border: none;
     color: white;
     padding: 15px 4.9rem;
@@ -85,8 +86,8 @@
 }
 
 .btn-shopping:hover {
-    background-color:lightgray;
-    color: black;
+    background-color:#303e4f;
+    color:white;
 }
 
 @media(min-width:600px){

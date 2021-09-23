@@ -37,7 +37,7 @@ const Card = ({ _id, name, price, image }) => {
             <div className="product-image">
                 <img className="prod-img" src={image} alt="watch" />
                 <span className="heart">
-                    {isInWishlist() ? <i className="fas fa-heart" style={{ color: "lightseagreen" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
+                    {isInWishlist() ? <i className="fas fa-heart" style={{ color: "#febd69" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
                 </span>
             </div>
             <div className="product-details">

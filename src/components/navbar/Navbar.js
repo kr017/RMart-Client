@@ -27,8 +27,13 @@ const Navbar = () => {
     const search = () => {
 
         return match && <div className="search_place">
-            <input className="search_bar" ref={searchValue} type="text" placeholder="Search for products,brands and more" onChange={searchProduct} />
-            <span className="search"><i className="fas fa-search"></i></span>
+            <div style={{display:'inline-flex',width:"87%"}}>
+                <input className="search_bar" ref={searchValue} type="text" placeholder="Search for products,brands and more" onChange={searchProduct} />
+            </div>
+            <div style={{display:'inline-flex',width:"13%",borderR:"5px"}}>
+                <span className="search"><i className="fas fa-search"></i></span>
+            </div>
+
         </div>
     }
 
@@ -46,10 +51,10 @@ const Navbar = () => {
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/wishlist" >Wishlist</Link></li>}
                             {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/cart" >Cart</Link></li>}
                             {/* {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>} */}
-                            {user.accessToken && <li className="nav-item profile-menu" onClick={() => { setShowProfile(!showProfile) }} onMouseOver={() => { setShowProfile(true) }} ><i className="far fa-user-circle fa-lg profile-icon" style={{ fontSize: "1.8rem" }}></i></li>}
+                            {user.accessToken && <li className="nav-item profile-menu" onClick={() => { setShowProfile(!showProfile) }} onMouseOver={() => { setShowProfile(true) }} ><i className="far fa-user-circle fa-lg profile-icon" style={{ fontSize: "1.8rem", color: "white" }}></i></li>}
                             {user.accessToken && <li className="nav-item profile-item"><Link className="nav-link" to="/orders" >My Orders</Link></li>}
                             {user.accessToken && <li className="nav-item profile-item"><Link className="nav-link" to="/edit/profile" >Edit Profile</Link></li>}
-                            {user.accessToken && <li className="nav-item profile-item" onClick={()=>{setUpdatePassword(true)}}><span className="nav-link" >Change Password</span></li>}
+                            {user.accessToken && <li className="nav-item profile-item" onClick={() => { setUpdatePassword(true) }}><span className="nav-link" >Change Password</span></li>}
                             {user.accessToken && <li className="nav-item profile-item"><button className="btn-logout" onClick={logoutUser}>Logout</button></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/login" >Login</Link></li>}
                             {!user.accessToken && <li className="nav-item"><Link className="nav-link" to="/signup" >Signup</Link></li>}
