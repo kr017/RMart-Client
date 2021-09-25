@@ -59,7 +59,7 @@ let WishlistCard = ({wishlist,_id, name, price, image })=>{
             <div className={style.product_image}>
                 <img className={style.prod_img} src={image} alt="watch" />
                 <span className={style.heart}>
-                    {isInWishlist() ? <i className="fas fa-heart" style={{ color: "lightseagreen" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
+                    {isInWishlist() ? <i className="fas fa-heart" style={{ color:  "#264f85" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart"  onClick={() => { addToUserWishlist(_id) }} ></i>}
                 </span>
             </div>
             <div className={style.product_details}>

@@ -76,9 +76,8 @@
 }
 
 .btn_shopping {
-    border: 1px solid red;
     width: 100%;
-    background-color: grey;
+    background-color:#232F3E; 
     border: none;
     color: white;
     padding: 15px 2rem;

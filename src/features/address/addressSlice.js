@@ -4,7 +4,7 @@ import axios from 'axios'
 export const addUserAddress = createAsyncThunk(
     'address/addUserAddress', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/api/add_address', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/add_address`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -15,7 +15,7 @@ export const addUserAddress = createAsyncThunk(
 export const getUserAddressList = createAsyncThunk(
     'address/getUserAddressList', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.get('http://localhost:5000/v1/api/get_user_addresses')
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND}v1/api/get_user_addresses`)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -26,7 +26,7 @@ export const getUserAddressList = createAsyncThunk(
 export const updateUserAddress = createAsyncThunk(
     'address/updateUserAddress', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.put('http://localhost:5000/v1/api/update_user_address',value)
+            const res = await axios.put(`${process.env.REACT_APP_BACKEND}v1/api/update_user_address`,value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)

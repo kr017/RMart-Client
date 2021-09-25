@@ -20,7 +20,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color:whitesmoke;
+    background-color:#fafafa;
     padding: 1rem 1.5rem;
     width: 24rem;
     border-radius: 0.5rem;
@@ -38,6 +38,10 @@
 
 .labels{
     margin-top: 0.6rem;
+}
+
+.brands{
+    width: 25%;
 }
 
 .filter_close{

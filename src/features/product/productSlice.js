@@ -4,7 +4,7 @@ import axios from 'axios'
 export const getProducts = createAsyncThunk(
     'product/getProducts', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/auth/get_all_products',value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/auth/get_all_products`,value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)

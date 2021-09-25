@@ -4,7 +4,7 @@ import axios from 'axios'
 export const loginUser = createAsyncThunk(
     'user/login', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/auth/login', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/auth/login`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -15,7 +15,7 @@ export const loginUser = createAsyncThunk(
 export const updateProfile = createAsyncThunk(
     'user/updateProfile', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.put('http://localhost:5000/v1/api/update_profile', value)
+            const res = await axios.put(`${process.env.REACT_APP_BACKEND}v1/api/update_profile`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)

@@ -7,6 +7,8 @@ import Profile from '../profile/Profile'
 import ChangePassword from '../profile/ChangePassword'
 
 
+
+
 const Navbar = () => {
     const [menu, setMenu] = useState(false);
     const [showProfile, setShowProfile] = useState(false);
@@ -47,9 +49,12 @@ const Navbar = () => {
                     {search()}
                     <div>
                         <ul className={menu ? "nav__list" : "nav-list"} onClick={() => { setMenu(false) }}>
-                            <li className="nav-item"><Link className="nav-link" to="/home" >Home</Link></li>
-                            {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/wishlist" >Wishlist</Link></li>}
-                            {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/cart" >Cart</Link></li>}
+                            <li className="nav-item "><Link className="nav-link hide-lg" to="/home" >Home</Link></li>
+                            <li className="nav-item "><Link className="nav-link hide-sm" to="/home" ><i class="fas fa-home fa-lg" style={{ fontSize: "1.6rem", color: "white" }}></i></Link></li>
+                            {user.accessToken && <li className="nav-item hide-lg"><Link className="nav-link" to="/wishlist" >Wishlist</Link></li>}
+                            {user.accessToken && <li className="nav-item hide-sm"><Link className="nav-link" to="/wishlist" ><i class="far fa-heart fa-lg" style={{ fontSize: "1.5rem",color: "white" }}></i></Link></li>}
+                            {user.accessToken && <li className="nav-item hide-lg "><Link className="nav-link" to="/cart" >Cart</Link></li>}
+                            {user.accessToken && <li className="nav-item  hide-sm"><Link className="nav-link" to="/cart" ><i class="fas fa-shopping-cart fa-lg" style={{ fontSize: "1.5rem", color: "white" }}></i></Link></li>}
                             {/* {user.accessToken && <li className="nav-item"><Link className="nav-link" to="/profile" >Profile</Link></li>} */}
                             {user.accessToken && <li className="nav-item profile-menu" onClick={() => { setShowProfile(!showProfile) }} onMouseOver={() => { setShowProfile(true) }} ><i className="far fa-user-circle fa-lg profile-icon" style={{ fontSize: "1.8rem", color: "white" }}></i></li>}
                             {user.accessToken && <li className="nav-item profile-item"><Link className="nav-link" to="/orders" >My Orders</Link></li>}
@@ -63,7 +68,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="bars" onClick={() => { setMenu(!menu) }}>
-                        {menu ? <i className="fas fa-times"></i> : <i className="fas fa-bars"></i>}
+                        {menu ? <i className="fas fa-times"></i> : <i className="fas fa-bars" style={{color:'white'}}></i>}
                     </div>
                 </nav>
 

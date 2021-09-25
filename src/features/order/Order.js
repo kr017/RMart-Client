@@ -20,8 +20,8 @@ const Order = () => {
     }
 
     useEffect(() => {
-        console.log("useEffect")
         getOrderDetail()
+        // eslint-disable-next-line 
     }, [])
     return (
         <div className={`container ${style.column}`}>
@@ -36,7 +36,7 @@ const Order = () => {
                     order.products.map((product, index) => {
                         return <div className={style.products}>
                             <div className={style.product_image}>
-                                <img className={style.image} src={product.image} />
+                                <img className={style.image} src={product.image} alt="product"/>
                             </div>
                             <div className={style.product_info}>
                                 <h4>{product.name}</h4>

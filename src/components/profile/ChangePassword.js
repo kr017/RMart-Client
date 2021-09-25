@@ -49,7 +49,7 @@ const changePassword = ({setUpdatePassword}) => {
                         </div>
                         <div className="column">
                             <label className="changePassword_label" htmlFor="newPassword">New Password</label>
-                            <Field className="changePassword_field" name="newPassword" type="newPassword" placeholder="Enter new password" />
+                            <Field className="changePassword_field" name="newPassword" type="password" placeholder="Enter new password" />
                             <span className="err_msg" > <ErrorMessage name="newPassword" /> </span>
                         </div>
                         <div>

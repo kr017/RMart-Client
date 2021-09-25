@@ -1,16 +1,16 @@
 
 import './Filter.css'
-import Slider from 'rc-slider';
-import 'rc-slider/assets/index.css';
-import 'rc-tooltip/assets/bootstrap.css';
+//import Slider from 'rc-slider';
+//import 'rc-slider/assets/index.css';
+//import 'rc-tooltip/assets/bootstrap.css';
 import { useState } from 'react';
 import { useDispatch} from 'react-redux';
 import { getProducts } from '../../features'
-const { createSliderWithTooltip } = Slider;
+//const { createSliderWithTooltip } = Slider;
 
 
 const Filter = (props) => {
-    const Range = createSliderWithTooltip(Slider.Range);
+   // const Range = createSliderWithTooltip(Slider.Range);
     let userPrference = JSON.parse(localStorage.getItem('filter'))
     const [filter, setFilter] = useState(userPrference || { brands: [], gender: [], price: '', range: [] })
     const dispatch = useDispatch();
@@ -65,7 +65,7 @@ const Filter = (props) => {
         dispatch(getProducts({ filter: filter }))
     }
 
-    let brands = ['Rollex', 'Titan', 'Fastrack', 'Fossil', 'Sonata', 'Roadster']
+    let brands = ['Titan','Fossil', 'Omega', 'Oris','Mi','G Shock']
     let gender = ['Male', 'Female', 'Unisex']
 
 
@@ -79,15 +79,15 @@ const Filter = (props) => {
                     </div>
                     <div className="filter_header">
                         <h2>Filters</h2>
-                        <span onClick={clearFilter}>CLEAR ALL</span>
+                        <span style={{cursor:"pointer"}} onClick={clearFilter}>CLEAR ALL</span>
                     </div>
                     <div >
                         <h4>Brands</h4>
 
-                        <div className="row">
+                        <div className="row ">
                             {
                                 brands.map((brand, index) => {
-                                    return <div key={index} className="pretty p-default p-curve p-fill labels">
+                                    return <div key={index} className="pretty p-default p-curve p-fill labels brands">
                                         <input type="checkbox" id={brand} value={brand} onChange={() => { handleBrands(brand) }} checked={filter.brands.includes(brand) ? true : false} />
                                         <div className="state">
                                             <label htmlFor={brand}>{brand}</label>
@@ -141,7 +141,7 @@ const Filter = (props) => {
 
 
                 </div>
-                <div>
+                {/* <div>
                     <h4>Price Range</h4>
                     <Range
                         min={0}
@@ -153,7 +153,7 @@ const Filter = (props) => {
                         //onChange={log}
                         className="labels"
                     />
-                </div>
+                </div> */}
 
 
             </div>

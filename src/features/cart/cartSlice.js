@@ -4,7 +4,7 @@ import axios from 'axios'
 export const addToCart = createAsyncThunk(
     'cart/addToCart', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/api/add_to_cart', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/add_to_cart`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -15,7 +15,7 @@ export const addToCart = createAsyncThunk(
 export const getUserCart = createAsyncThunk(
     'cart/getUserCart', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.get('http://localhost:5000/v1/api/get_user_cart')
+            const res = await axios.get(`${process.env.REACT_APP_BACKEND}v1/api/get_user_cart`)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -26,7 +26,7 @@ export const getUserCart = createAsyncThunk(
 export const updateQty = createAsyncThunk(
     'cart/updateProductQty', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/api/update_qty', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/update_qty`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -37,7 +37,7 @@ export const updateQty = createAsyncThunk(
 export const moveToWishlist = createAsyncThunk(
     'cart/moveToWishlist', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/api/move_to_wishlist', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/move_to_wishlist`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -48,7 +48,7 @@ export const moveToWishlist = createAsyncThunk(
 export const removeProduct = createAsyncThunk(
     'cart/removeProduct', async (value, { rejectWithValue }) => {
         try {
-            const res = await axios.post('http://localhost:5000/v1/api/remove_from_cart', value)
+            const res = await axios.post(`${process.env.REACT_APP_BACKEND}v1/api/remove_from_cart`, value)
             return res.data
         } catch (error) {
             return rejectWithValue(error.response.data)
@@ -76,7 +76,8 @@ const cartSlice = createSlice({
     },
     extraReducers: {
         [addToCart.pending]: (state, action) => {
-            state.error = null
+            state.error = null;
+            state.loading= true
         },
         [addToCart.fulfilled]: (state, action) => {
             state.loading = false;
@@ -90,7 +91,8 @@ const cartSlice = createSlice({
             state.error = action.payload.message
         },
         [getUserCart.pending]: (state, action) => {
-            state.error = null
+            state.error = null;
+            state.loading = true
         },
         [getUserCart.fulfilled]: (state, action) => {
             state.loading = false;
@@ -104,7 +106,8 @@ const cartSlice = createSlice({
             state.error = action.payload.message
         },
         [updateQty.pending]: (state, action) => {
-            state.error = null
+            state.error = null;
+            state.loading = true
         },
         [updateQty.fulfilled]: (state, action) => {
             state.loading = false;
@@ -119,6 +122,7 @@ const cartSlice = createSlice({
         },
         [removeProduct.pending]: (state, action) => {
             state.error = null
+            state.loading = true
         },
         [removeProduct.fulfilled]: (state, action) => {
             state.loading = false;
@@ -133,6 +137,7 @@ const cartSlice = createSlice({
         },
         [moveToWishlist.pending]: (state, action) => {
             state.error = null
+            state.loading = true
         },
         [moveToWishlist.fulfilled]: (state, action) => {
             state.loading = false;
@@ -151,4 +156,5 @@ const cartSlice = createSlice({
 
 
 export const { emptyCart, setAddress } = cartSlice.actions;
+export const loadingStatus = (state) => state.cart.loading
 export default cartSlice.reducer

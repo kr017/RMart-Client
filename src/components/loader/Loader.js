@@ -1,4 +1,4 @@
-import PropagateLoader from "react-spinners/PropagateLoader";
+import ClipLoader from "react-spinners/ClipLoader";
 import { css } from "@emotion/react";
 import './loader.css' 
 
@@ -8,8 +8,8 @@ const override = css`
 
 const Loader  = ({loading})=>{
   return (
-      <div className="loader" >
-      <PropagateLoader loading={loading} css={override} color="lightseagreen"/>
+      <div className={loading ? "loader" : "hide"} >
+      <ClipLoader size={80} loading={loading} css={override} color="#131921"/>
       </div>
   )
 }

@@ -4,7 +4,7 @@ import { addToWishlist, userInfo, removeFromWishlist } from '../../features'
 import {  useHistory } from 'react-router';
 
 
-const Card = ({ _id, name, price, image }) => {
+const Card = ({ _id, name, price, image,discount }) => {
     const dispatch = useDispatch();
     const user = useSelector(userInfo)
     const wishlist = useSelector((state) => state.wishlist.products)
@@ -37,13 +37,13 @@ const Card = ({ _id, name, price, image }) => {
             <div className="product-image">
                 <img className="prod-img" src={image} alt="watch" />
                 <span className="heart">
-                    {isInWishlist() ? <i className="fas fa-heart" style={{ color: "#febd69" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
+                    {isInWishlist() ? <i className="fas fa-heart" style={{ color: "#264f85" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
                 </span>
             </div>
             <div className="product-details">
                 <h3 className="product-name">{name}</h3>
                 <span className="product-price">RS. {price}</span>
-                <div className="product-discount" ><span>M.R.P  Rs. {price} 10%off</span></div>
+                <div className="product-discount" ><span>M.R.P  Rs. {parseInt((price*100)/(100-discount))} {discount}% off</span></div>
                 
             </div>
             <div className="card-action">
