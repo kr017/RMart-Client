@@ -68,7 +68,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="bars" onClick={() => { setMenu(!menu) }}>
-                        {menu ? <i className="fas fa-times"></i> : <i className="fas fa-bars" style={{color:'white'}}></i>}
+                        {menu ? <i className="fas fa-times" style={{color:'white'}}></i> : <i className="fas fa-bars" style={{color:'white'}}></i>}
                     </div>
                 </nav>
 

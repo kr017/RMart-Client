@@ -11,15 +11,16 @@ const Signup = () => {
     const loading = useSelector(loadingStatus);
     const dispatch = useDispatch();
     const history = useHistory();
-
+    const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
     return (
         <div className="container">
             <Formik
-                initialValues={{ name: '', email: '', password: '' }}
+                initialValues={{ name: '', email: '', password: '',mobile:'' }}
                 validationSchema={Yup.object({
                     name: Yup.string().trim().required('Name is required'),
                     email: Yup.string().trim().email('Invalid email address.').required('Email is required'),
-                    password: Yup.string().trim().min(6).required('Password is required')
+                    password: Yup.string().trim().min(6).required('Password is required'),
+                    mobile: Yup.string().trim().length(10).matches(phoneRegExp, 'Phone number is not valid').required('Mobile number is required')
                 })}
                 onSubmit={(values) => {
                     dispatch(signupUser(values)).unwrap()
@@ -44,6 +45,11 @@ const Signup = () => {
                         <label className={styles.form_label} htmlFor="email">Email</label>
                         <Field className={styles.form_field} name="email" type="text" placeholder="Enter your email" />
                         <span className={styles.err_msg}><ErrorMessage name="email" /></span>
+                    </div>
+                    <div className={styles.column}>
+                        <label className={styles.form_label} htmlFor="mobile">Mobile</label>
+                        <Field className={styles.form_field} name="mobile" type="text" placeholder="Enter your mobile" />
+                        <span className={styles.err_msg}><ErrorMessage name="mobile" /></span>
                     </div>
                     <div className={styles.column}>
                         <label className={styles.form_label} htmlFor="password">Password</label>

@@ -63,7 +63,7 @@ const ProductInfo = () => {
                 })
         }
         else {
-            history.push('./login')
+            history.push('/login')
         }
     }
 

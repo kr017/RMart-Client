@@ -35,7 +35,7 @@ const EditProfile = () => {
                 validationSchema={Yup.object({
                     name: Yup.string().trim().required('Name is required'),
                     email: Yup.string().trim().email('Invalid email address.').required('Email is required'),
-                    mobile: Yup.string().trim().matches(phoneRegExp, 'Phone number is not valid').required('Mobile number is required')
+                    mobile: Yup.string().trim().length(10).matches(phoneRegExp, 'Phone number is not valid').required('Mobile number is required')
                 })}
                 onSubmit={(values) => {
                     dispatch(updateProfile(values)).unwrap()

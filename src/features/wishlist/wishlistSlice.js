@@ -66,7 +66,7 @@ const wishlistSlice = createSlice({
         [addToWishlist.fulfilled]: (state, action) => {
             state.loading = false;
             state.error = null;
-            state.products =  action.payload.data.products ? action.payload.data.products : [];
+            state.products =  action.payload.data ? action.payload.data.products : [];
         },
         [addToWishlist.rejected]: (state, action) => {
             state.loading = false;
@@ -79,7 +79,7 @@ const wishlistSlice = createSlice({
         [getUserWishlist.fulfilled]: (state, action) => {
             state.loading = false;
             state.error = null;
-            state.products = action.payload.data.products ? action.payload.data.products : [];
+            state.products = action.payload.data ? action.payload.data.products : [];
         },
         [getUserWishlist.rejected]: (state, action) => {
             state.loading = false;
@@ -92,7 +92,7 @@ const wishlistSlice = createSlice({
         [removeFromWishlist.fulfilled]: (state, action) => {
             state.loading = false;
             state.error = null;
-            state.products = action.payload.data.products ? action.payload.data.products : [];
+            state.products = action.payload.data ? action.payload.data.products : [];
         },
         [removeFromWishlist.rejected]: (state, action) => {
             state.loading = false;
@@ -105,7 +105,7 @@ const wishlistSlice = createSlice({
         [moveToCart.fulfilled]: (state, action) => {
             state.loading = false;
             state.error = null;
-            state.products = action.payload.data.products ? action.payload.data.products : [];
+            state.products = action.payload.data ? action.payload.data.products : [];
         },
         [moveToCart.rejected]: (state, action) => {
             state.loading = false;

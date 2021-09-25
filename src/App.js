@@ -23,6 +23,7 @@ function App() {
       <Navbar />
       {/* <Order/> */}
       <Switch>
+        <Route exact component={Home} path='/' ></Route>
         <Route exact component={Home} path='/home' ></Route>
         <Route exact component={Signup} path='/signup'></Route>
         <Route exact component={Login} path='/login'></Route>
