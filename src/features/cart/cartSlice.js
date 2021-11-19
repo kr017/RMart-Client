@@ -157,4 +157,5 @@ const cartSlice = createSlice({
 
 export const { emptyCart, setAddress } = cartSlice.actions;
 export const loadingStatus = (state) => state.cart.loading
+export const totalItem = (state)=> state.cart.cartSize
 export default cartSlice.reducer

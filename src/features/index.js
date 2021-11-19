@@ -9,7 +9,7 @@ import Payment from './payment/Payment'
 import { getUser,userInfo, logout,updateProfile } from './login/userSlice'
 import { getProducts,products } from './product/productSlice'
 import {addToWishlist,getUserWishlist,removeFromWishlist,emptyWishlist,moveToCart} from './wishlist/wishlistSlice'
-import { addToCart,getUserCart,updateQty,removeProduct,moveToWishlist,emptyCart} from './cart/cartSlice'
+import { addToCart,getUserCart,updateQty,removeProduct,moveToWishlist,emptyCart,totalItem} from './cart/cartSlice'
 
 
 export{
@@ -37,5 +37,6 @@ export{
     moveToWishlist,
     moveToCart,
     updateProfile,
-    emptyCart
+    emptyCart,
+    totalItem
 }

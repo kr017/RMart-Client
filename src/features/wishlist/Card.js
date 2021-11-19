@@ -1,9 +1,9 @@
 import style from './Wishlist.module.css'
 import { addToWishlist, userInfo, removeFromWishlist,moveToCart } from '../'
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory,Link } from 'react-router-dom';
 import toast from 'react-hot-toast'
-
+import {getUserCart} from '../cart/cartSlice'
 
 
 
@@ -45,6 +45,7 @@ let WishlistCard = ({wishlist,_id, name, price, image })=>{
                 duration: 1500,
                 position: 'top-right',
             })
+            dispatch(getUserCart())
         })
         .catch(err=>{
             toast.error(err.message, {
@@ -57,7 +58,7 @@ let WishlistCard = ({wishlist,_id, name, price, image })=>{
     return(
         <div className={style.card}>
             <div className={style.product_image}>
-                <img className={style.prod_img} src={image} alt="watch" />
+               <Link to={`/shop/${_id}`} > <img className={style.prod_img} src={image} alt="watch" /></Link>
                 <span className={style.heart}>
                     {isInWishlist() ? <i className="fas fa-heart" style={{ color:  "#264f85" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart"  onClick={() => { addToUserWishlist(_id) }} ></i>}
                 </span>

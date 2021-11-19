@@ -3,7 +3,7 @@ import emptyCart from './emptyCart.svg'
 import style from './Cart.module.css'
 import CartCard from './Card'
 import { useEffect } from 'react'
-import { getUserCart } from '../../features'
+import { getUserCart,getUserWishlist} from '../../features'
 import { useHistory } from 'react-router'
 import { loadingStatus } from './cartSlice'
 import { Loader } from '../../components'
@@ -23,6 +23,7 @@ const Cart = () => {
 
     useEffect(() => {
         dispatch(getUserCart())
+        dispatch(getUserWishlist())
         //  eslint-disable-next-line
     }, [])
     return (

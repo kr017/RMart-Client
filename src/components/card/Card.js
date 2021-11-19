@@ -1,7 +1,7 @@
 import './Card.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { addToWishlist, userInfo, removeFromWishlist } from '../../features'
-import {  useHistory } from 'react-router';
+import {  useHistory,Link } from 'react-router-dom';
 
 
 const Card = ({ _id, name, price, image,discount }) => {
@@ -35,7 +35,7 @@ const Card = ({ _id, name, price, image,discount }) => {
     return (
         <div className="card">
             <div className="product-image">
-                <img className="prod-img" src={image} alt="watch" />
+               <Link to={`/shop/${_id}`}> <img className="prod-img" src={image} alt="watch" /></Link>
                 <span className="heart">
                     {isInWishlist() ? <i className="fas fa-heart" style={{ color: "#264f85" }} onClick={() => { removeFromUserWishlist(_id) }} ></i> : <i className="far fa-heart" onClick={() => { addToUserWishlist(_id) }} ></i>}
                 </span>

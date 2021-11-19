@@ -5,12 +5,14 @@ import { useDispatch, useSelector } from 'react-redux';
 // import style from './Wishlist.module.css' 
 import { loadingStatus } from './wishlistSlice'
 import { Loader } from '../../components'
+import {getUserCart} from '../cart/cartSlice'
 const Wishlist = () => {
     const dispatch = useDispatch();
     const wishlist = useSelector((state) => state.wishlist.products)
     const loading = useSelector(loadingStatus)
     useEffect(() => {
         dispatch(getUserWishlist())
+        dispatch(getUserCart())
         // eslint-disable-next-line
     }, [])
 

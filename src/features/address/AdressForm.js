@@ -69,7 +69,6 @@ const AddressForm = ({ address, setText, text }) => {
     }
 
     const editAddress = (value) => {
-        console.log("value",value)
         setAddr({
             street1: value.key==="street1" ? value.street1 : address.line1,
             street2: value.key==="street2" ? value.street2: address.line2,
@@ -81,7 +80,6 @@ const AddressForm = ({ address, setText, text }) => {
     }
 
     useEffect(() => {
-        console.log("inside use effect")
         if (text.id === address._id && updateAddress) {
             setButtonText('Selected')
         } else if (text.id !== address._id && updateAddress) {

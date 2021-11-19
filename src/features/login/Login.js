@@ -14,6 +14,23 @@ const Login = () => {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    const guestLogin = ()=>{
+        dispatch(loginUser({email:"rohit1@gmail.com",password:'12345678'})).unwrap()
+                        .then((user) => {
+                            toast.success(user.message, {
+                                duration: 1500,
+                                position: 'top-right',
+                            })
+                            history.push('/home')
+                        })
+                        .catch((err) => {
+                            toast.error(err.message, {
+                                duration: 1500,
+                                position: 'top-right',
+                            })
+                        })
+    }
+
     return (
         <div className="container">
             <Formik
@@ -55,6 +72,8 @@ const Login = () => {
                     </div>
                     <div>
                         <button className={styles.btn_login} type="submit">Login</button>
+                        <div>OR</div>
+                        <button type="button" className={styles.guest_btn_login} onClick={guestLogin}>Guest Login</button>
                         <div><span style={{ fontSize: "0.9rem" }}>Don't have account.?<Link to="/signup">Signup</Link> </span> </div>
                     </div>
                 </Form>

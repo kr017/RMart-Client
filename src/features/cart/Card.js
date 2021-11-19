@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import style from './Cart.module.css'
 import { useDispatch} from 'react-redux'
-import  {updateQty,removeProduct,moveToWishlist} from '../../features'
+import  {updateQty,removeProduct,moveToWishlist,getUserWishlist} from '../../features'
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 
 const CartCard = ({item}) => {
 
@@ -40,6 +41,7 @@ const CartCard = ({item}) => {
     const moveItemToWishlist = (id)=>{
         dispatch(moveToWishlist({product_id:id})).unwrap()
         .then(res=>{
+            dispatch(getUserWishlist())
             toast.success(res.message, {
                 duration: 1500,
                 position: 'top-right',
@@ -56,7 +58,7 @@ const CartCard = ({item}) => {
     return (
         <div className={style.cart_card}>
                 <div>
-                    <img className={style.cart_product_img} src={item.image} alt="watch" />
+                <Link to={`/shop/${item._id}`}>  <img className={style.cart_product_img} src={item.image} alt="watch" /></Link>
                 </div>
 
                 <div className={style.cart_product_info}>

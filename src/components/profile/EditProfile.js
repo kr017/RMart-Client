@@ -18,7 +18,6 @@ const EditProfile = () => {
     const phoneRegExp = /^((\\+[1-9]{1,4}[ \\-]*)|(\\([0-9]{2,3}\\)[ \\-]*)|([0-9]{2,4})[ \\-]*)*?[0-9]{3,4}?[ \\-]*[0-9]{3,4}?$/
 
     const handleProfileChange =(key,value)=>{
-        console.log("val",value)
         setProfile({
             name: key==='name' ? value : profile.name,
             email: key==='email' ? value : profile.email,

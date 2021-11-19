@@ -42,9 +42,16 @@ form{
     background:white;
     border-radius: 0.5rem;
     font-size: 1rem;
-    margin-bottom: 0.3rem;
+    margin-bottom: 0.1rem;
 }
-
+.guest_btn_login{
+    margin-top: 0.2rem;
+    padding: 0.5rem 1rem;
+    background:white;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    margin-bottom: 0.1rem;
+}
 .err_msg{
     color: red;
     font-size: 0.7rem;

@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 const OrderTable = () => {
 
     const [orders, setOrders] = useState([]);
-    
+
 
     const getUserAllOrders = async () => {
         try {
@@ -24,9 +24,9 @@ const OrderTable = () => {
 
     return (
         <div className="container">
-            {orders.length > 0 && <div className={style.order_table}>
+            {orders.length > 0 ? <div className={style.order_table}>
                 <div className={style.table_heading}><h2 >Orders</h2></div>
-                
+
 
                 <table className={style.orders}>
                     <tr>
@@ -35,9 +35,9 @@ const OrderTable = () => {
                         <th >Date</th>
                     </tr>
                     {
-                        orders.map((order,index) => {
-                            return <tr style={{cursor:'pointer'}}>
-                                <td>{index+1}</td>
+                        orders.map((order, index) => {
+                            return <tr style={{ cursor: 'pointer' }}>
+                                <td>{index + 1}</td>
                                 <td><Link className={style.order_id} to={`/order/${order._id}`}>{order.order_id}</Link></td>
                                 <td>{order.created_at}</td>
                             </tr>
@@ -45,6 +45,11 @@ const OrderTable = () => {
                     }
                 </table>
             </div>
+                : (
+                    <div style={{ display: "flex", justifyContent: "center", alignItems: "center", minHeight: "calc(100vh - 12vh)" }}>
+                        <span style={{ fontSize: "2rem", fontWeight: 600 }}>No order has been placed!!</span>
+                    </div>
+                )
             }
         </div>
     )

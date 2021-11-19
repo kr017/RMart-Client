@@ -1,21 +1,21 @@
 import './App.css';
-import { Navbar, Home,ProductInfo,EditProfile} from './components'
-import { Route, Switch } from 'react-router-dom';
-import { Signup, Login,getUser,Cart,Address,OrderTable,Wishlist,Payment,Order} from './features'
+import { Navbar, Home, ProductInfo, EditProfile } from './components'
+import { Route, Switch,Redirect } from 'react-router-dom';
+import { Signup, Login, getUser, Cart, Address, OrderTable, Wishlist, Payment, Order } from './features'
 import { Toaster } from "react-hot-toast";
-import { useDispatch} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import PrivateRoute from './PrivateRoute'
-import  './config/AxiosConfig'
+import './config/AxiosConfig'
 
 
 function App() {
   const dispatch = useDispatch();
   let userData = JSON.parse(localStorage.getItem('userInfo')) || '';
-  if(userData.name && userData.accessToken){
+  if (userData.name && userData.accessToken) {
     dispatch(getUser())
   }
-  
-  
+
+
 
 
   return (
@@ -23,7 +23,12 @@ function App() {
       <Navbar />
       {/* <Order/> */}
       <Switch>
-        <Route exact component={Home} path='/' ></Route>
+        <Route exact  path='/' render={() => {
+          return (
+            <Redirect to="/home" />
+          )
+        }}
+        ></Route>
         <Route exact component={Home} path='/home' ></Route>
         <Route exact component={Signup} path='/signup'></Route>
         <Route exact component={Login} path='/login'></Route>
